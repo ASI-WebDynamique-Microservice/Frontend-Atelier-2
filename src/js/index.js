@@ -1,3 +1,11 @@
+$(document).ready(function() {
+
+    // Setup user infos
+    document.getElementById('userNameId').textContent = sessionStorage.getItem('username');
+    document.getElementById('userMoney').textContent = sessionStorage.getItem('money');
+    
+});
+
 let cardList = [
         {
             family_name:"DC Comic",

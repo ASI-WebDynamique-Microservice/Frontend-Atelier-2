@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    // var postUrl = 'http://localhost:8083/addUser'; // Stocke l'URL dans une variable
-    var postUrl = 'http://tp.cpe.fr:8083/user/99'; // Stocke l'URL dans une variable
+    var postUrl = 'http://localhost:8083/user/new'; // Stocke l'URL dans une variable
 
     $(".ui.form").on('submit', function(event){
         event.preventDefault();
@@ -14,30 +13,30 @@ $(document).ready(function(){
             data[obj.name] = obj.value;
         });
 
-        // // Crée un nouvel objet avec le format attendu par l'API
-        // var apiData = {
-        //     username: data['username'],
-        //     name: data['name'],
-        //     surname: data['surname'],
-        //     password: data['pwd']
-        // };
         // Crée un nouvel objet avec le format attendu par l'API
         var apiData = {
-            login: data['username'],
-            pwd: data['pwd'],
-            lastName: data['surname'],
-            surName: data['name']
+            username: data['username'],
+            name: data['name'],
+            surname: data['surname'],
+            password: data['pwd']
         };
+        // Crée un nouvel objet avec le format attendu par l'API
+        // var apiData = {
+        //     login: data['username'],
+        //     pwd: data['pwd'],
+        //     lastName: data['surname'],
+        //     surName: data['name']
+        // };
 
         // Envoi des données en POST
         $.ajax({
             url: postUrl,
-            type: 'PUT',
+            type: 'POST',
             data: JSON.stringify(apiData),
             contentType: 'application/json',
             success: function(data){
                 console.log(data);
-                window.location.href = "http://localhost:8080/pages/login.html";
+                //window.location.href = "/pages/login.html";
             },
             error: function(err){
                 console.log('Erreur:', err);

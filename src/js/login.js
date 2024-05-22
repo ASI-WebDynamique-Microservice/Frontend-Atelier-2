@@ -28,6 +28,13 @@ $(document).ready(function(){
             success: function(data){
                 console.log(data);
                 sessionStorage.setItem('sessionId', 123456789);
+                // sessionStorage.setItem('usernameID', data.id);
+                // sessionStorage.setItem('username', data.username);
+                sessionStorage.setItem('username', "raspoute");
+                // sessionStorage.setItem('surname', data.surname);
+                // sessionStorage.setItem('lastname', data.lastname);
+                // sessionStorage.setItem('money', data.balance);
+                sessionStorage.setItem('money', 1000000);
                 window.location.href = "http://localhost:8080/index.html";
             },
             error: function(err){
